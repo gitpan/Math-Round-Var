@@ -1,0 +1,90 @@
+NAME
+    Math::Round::Var - Variations on rounding.
+
+SYNOPSIS
+      use Math::Round::Var;
+      my $rnd = Math::Round::Var->new($scheme);
+      $num = $rnd->round($num);
+
+DESCRIPTION
+    This module gives you the ability to round numbers to either decimal or
+    fractional precision.
+
+AUTHOR
+      Eric L. Wilhelm
+      ewilhelm at sbcglobal dot net
+      http://pages.sbcglobal.net/mycroft/
+
+COPYRIGHT
+    This module is copyright (C) 2003 by Eric L. Wilhelm.
+
+LICENSE
+    This module is distributed under the same terms as Perl. See the Perl
+    source package for details.
+
+    You may use this software under one of the following licenses:
+
+      (1) GNU General Public License
+        (found at http://www.gnu.org/copyleft/gpl.html)
+      (2) Artistic License
+        (found at http://www.perl.com/pub/language/misc/Artistic.html)
+
+CHANGES
+      0.01 First public release 
+
+Front-End Constructor
+    The Math::Round::Var::new() function only decides between the two
+    sub-packages based on the format of your precision argument.
+
+    This is the extent of the purpose of the Math::Round::Var class.
+
+  new
+
+      Math::Round::Var->new($precision);
+
+  format_of
+
+    Returns "decimal" or "fraction" for $type based on the format of
+    $precision. If $type is "decimal", then $count will be the number of
+    digits to use.
+
+      my ($type, $count) = format_of($precision);
+
+    Valid formats should be any of the number formats which are used by
+    Perl. Basically, the 'fraction' methods will work for anything (as long
+    as Perl can divide by it), but we would be wasting time if we only want
+    to round to a certain decimal place.
+
+    Fractional Formats:
+      0.125
+      0.00007
+      2
+      2.885
+
+    Decimal Formats:
+      0.0000001
+      1.0e-10
+
+Decimal-based rounding
+  new
+
+    Creates a new decimal-based rounding object.
+
+      Math::Round::Var::Float->new(precision => 7);
+
+    The argument to precision is the number of digits to use in rounding.
+    This is used as part of a sprintf() format.
+
+  round
+
+      $number = $rounder->round($number);
+
+Fraction-based rounding.
+  new
+
+      Math::Round::Var::Fraction->new();
+
+  round
+
+      $number = $rounder->round($number);
+
