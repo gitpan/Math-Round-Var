@@ -3,13 +3,16 @@
 
 #########################
 
-use Test::More;
-plan tests => 9;
+use Test::More qw(
+	no_plan
+	);
 
 use Math::Round::Var;
 ok(1); # If we made it this far, we're ok.
 
 #########################
+# XXX check for Math::Round and skips?
+# XXX are we testing the parsing of inputs or what?
 
 my $r = Math::Round::Var->new(0.0);
 ok(ref($r) eq "Math::Round::Var::Float", "%0.0f");
@@ -17,8 +20,11 @@ ok($r->round(7.5) == 8);
 $r = Math::Round::Var->new(0.001);
 ok(ref($r) eq "Math::Round::Var::Float", "%0.3f");
 ok($r->round(1.4443) == 1.444);
-my $n = $r->round(1.4445);
-ok($n == 1.444, "wart:  1.4445 should round to 1.445");
+TODO: {
+	my $n = $r->round(1.4445);
+	local $TODO = "warts in sprintf" if $n == 1.444;
+	ok($n == 1.445, "wart:  1.4445 should round to 1.445");
+}
 $r = Math::Round::Var->new(1/100);
 ok(ref($r) eq "Math::Round::Var::Float", "1/100");
 $r = Math::Round::Var->new(0.125);

@@ -1,3 +1,7 @@
-Changes
-      0.01 First public release 
+0.02
+	Added 'use' statements to secondary packages
+		(error found by Michael Graham.)
+	Test cleanup.
+	Added fake rounding class.
 
+0.01 First public release 
