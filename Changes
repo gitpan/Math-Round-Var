@@ -1,3 +1,6 @@
+0.03
+	fixed nit in compatibility Makefile.PL
+
 0.02
 	Added 'use' statements to secondary packages
 		(error found by Michael Graham.)
