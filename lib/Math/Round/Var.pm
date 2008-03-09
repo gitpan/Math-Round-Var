@@ -1,11 +1,10 @@
 package Math::Round::Var;
+$VERSION=v1.0.0;
 
 use 5.006;
 use strict;
 use warnings;
 use Carp;
-
-our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -44,13 +43,13 @@ modules can offload the how-to-round decisions to this module.
 
 =head1 AUTHOR
 
-Eric L. Wilhelm <ewilhelm at cpan dot org>
+Eric L. Wilhelm @ <ewilhelm at cpan dot org>
 
 http://scratchcomputing.com
 
 =head1 COPYRIGHT
 
-This module is copyright (C) 2003-2006 by Eric L. Wilhelm.
+This module is copyright (C) 2003-2008 by Eric L. Wilhelm.
 
 =head1 LICENSE
 
